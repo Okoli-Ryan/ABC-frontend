@@ -1,0 +1,17 @@
+.news_container {
+    display: flex;
+    padding: 1rem;
+    flex-direction: column;
+    border: 1px solid white
+}
+
+.new_body{
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.row{
+    display: flex;
+    justify-content: space-between;
+}
