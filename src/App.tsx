@@ -1,9 +1,9 @@
 import './App.css';
 
-import moment from 'moment';
 import { useEffect, useState } from 'react';
 
 import { ApiService } from './axios';
+import NewsCard from './NewsCard';
 import { IStory, StoryType, StoryTypeLabel } from './utils';
 
 export default function App() {
@@ -30,6 +30,8 @@ export default function App() {
 		setLoading(false);
 	}
 
+	async function viewComments() {}
+
 	return (
 		<div>
 			<h4>News: {type}</h4>
@@ -43,14 +45,7 @@ export default function App() {
 			))}
 			<div className="new_body">
 				{newsList.map((el) => (
-					<div className="news_container">
-						<div style={{ fontWeight: "bold" }}>{el.title}</div>
-						<div className="row">
-							<p>-by {el.by}</p>
-							<p>{moment(el.time).format("MMMM Do YYYY, h:mm:ss a")}</p>
-						</div>
-                            <p>{el.descendants} comments</p>
-					</div>
+					<NewsCard {...el} />
 				))}
 			</div>
 			{loading && <p>Loading...</p>}
