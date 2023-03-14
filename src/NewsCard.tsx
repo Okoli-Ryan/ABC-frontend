@@ -22,6 +22,7 @@ export default function NewsCard({ by, title, time, descendants, kids }: INewsCa
 		if (comments.length === 0) {
 			const response = await ApiService.getComments(kids);
 
+            console.log(response)
 			setComments(response);
 		}
 		setShowComments(true);
@@ -36,7 +37,7 @@ export default function NewsCard({ by, title, time, descendants, kids }: INewsCa
 				<p>{moment(time).format("MMMM Do YYYY, h:mm:ss a")}</p>
 			</div>
 			{loading ? <p>Loading...</p> : <p className="view_comments" onClick={viewComments}>
-				view {descendants} comments
+				view {kids.length} comments
 			</p>}
 			{showComments && (
 				<div className="comment_container">

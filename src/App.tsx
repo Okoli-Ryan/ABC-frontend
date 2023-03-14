@@ -30,8 +30,6 @@ export default function App() {
 		setLoading(false);
 	}
 
-	async function viewComments() {}
-
 	return (
 		<div>
 			<h4>News: {type}</h4>
@@ -45,7 +43,7 @@ export default function App() {
 			))}
 			<div className="new_body">
 				{newsList.map((el) => (
-					<NewsCard {...el} />
+					<NewsCard key={el.id} {...el} />
 				))}
 			</div>
 			{loading && <p>Loading...</p>}
